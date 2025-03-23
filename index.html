@@ -33,8 +33,8 @@
     <div id="particles-js">
       <div class="header">
         <h1>
-          <span class="site-title">ADITYA VIKRAM SINGH</span>
-          <span class="site-description">Programmer • Web Developer • Graphic Designer</span>
+          <!--span class="site-title">ADITYA VIKRAM SINGH</span -->
+          <span class="site-description">A Secure and Dynamic Multi Keyword Ranked Search Scheme over Encrypted Cloud Data</span>
         </h1>
         <div class="header-icons">
           <a aria-label="My LinkedIn Profile" target="_blank" href="https://www.linkedin.com/in/avs1508/">
@@ -62,7 +62,8 @@
     <section id="about">
       <!-- User Introduction-->
       <div class="user-details">
-        <h1>My Story</h1>
+        <h1>Introduction</h1>
+        <!--
         <picture>
           <source
             type="image/webp"
@@ -71,21 +72,20 @@
             width="20%"
             style="border-radius: 50%"
           />
-          <img
-            src="./assets/img/jpg/Professional-Picture-Me.jpg"
-            alt="Professional Me"
-            width="20%"
-            style="border-radius: 50%"
-          />
+        -->
+        <img
+          src="./assets/img/jpg/block.jpg"
+          alt="Professional Me"
+          width="70%"
+          style="border-radius: 0"
+        />
+      
         </picture>
         <p>
-          I am a junior in the College of Information and Computer Sciences at the University of Massachusetts Amherst,
-          pursuing an undergraduate degree. I am majoring in Computer Science, with intent to double major in
-          Mathematics with Statistics and Data Science concentration. I'm involved as a Software Developer for BUILD
-          UMass, where I use my software engineering skills for pro-bono app/web development and tech consulting for the
-          Amherst community. I also serve as a Designer for the HackUMass Organizing Team, responsible for graphics
-          design and production for the annual hackathon. I am interested in exploring the fields of Software
-          Engineering, Data Science, and Machine Learning, and I am open to opportunities for the same.
+          With the rapid advancement of technology, cloud computing has become an essential part of modern data storage and processing. From small businesses to large enterprises and highly confidential applications, a significant portion of data has migrated to the cloud due to its scalability, cost-efficiency, and accessibility. However, this shift raises critical security and privacy concerns, particularly regarding unauthorized access and data breaches.<br><br>
+          One of the primary challenges is ensuring the confidentiality of sensitive information stored in the cloud. If not properly protected, data can be exposed to unauthorized entities, including cloud service providers and malicious attackers. A common approach to mitigating this risk is encrypting data before outsourcing it to the cloud. However, conventional encryption techniques make it difficult to perform efficient search and computation on encrypted data.<br><br>
+          To address this challenge, our project proposes a secure and dynamic multi-keyword ranked search scheme over encrypted cloud data. This approach enables efficient and privacy-preserving searches without decrypting the data, ensuring both security and usability. Our scheme supports multiple keywords, ranks search results based on relevance, and allows dynamic updates to the encrypted dataset without compromising security.<br><br>
+          Applications of this solution include secure cloud storage for businesses, privacy-preserving medical record retrieval, encrypted financial data analysis, and confidential legal document management. By enabling secure and efficient search over encrypted data, this project enhances cloud security while maintaining the benefits of cloud computing.<br><br>
         </p>
       </div>
 
@@ -136,19 +136,19 @@
     <!-- Projects Section -->
     <section id="projects">
       <div class="user-details">
-        <h1>Featured Projects</h1>
+        <h1>Entities</h1>
       </div>
 
       <!-- User Project #1: Personal Résumé Website -->
       <div class="user-projects">
         <div class="images-right">
           <picture>
-            <source type="image/webp" srcset="./assets/img/webp/Personal-Resume-Website.webp" alt="Personal Website" />
-            <img alt="Personal Website" src="./assets/img/jpg/Personal-Resume-Website.jpg" />
+            <!--source type="image/webp" srcset="./assets/img/webp/data-owner.webp" alt="Personal Website" /-->
+            <img alt="Personal Website" src="./assets/img/jpg/data-owner.jpg" />
           </picture>
         </div>
         <div class="contents" style="text-align: center">
-          <h3>Personal Website</h3>
+          <h3>Data Owner</h3>
           <div>
             <img
               height="32"
@@ -167,11 +167,9 @@
             <img height="32" width="32" src="https://unpkg.com/simple-icons@3.4.0/icons/github.svg" />
           </div>
           <p style="text-align: justify">
-            I developed and designed a website using ReactJS and Bootstrap, hosted on Github Pages, to showcase my web
-            presence, story, work experience, education, projects, and achievements in an interactive and
-            visually-appealing format.
+            The Data Owner is responsible for managing a collection of documents. To enable efficient and secure searching over encrypted data, the data owner constructs a secure index from the documents(TF-IDF model), encrypts it and sends it to the cloud server. The documents are then encrypted to create a secure collection, ensuring confidentiality before outsourcing them to the cloud server. Additionally, the data owner distributes the necessary key information required for trapdoor generation and document decryption to authorized users. The data owner can also update documents, apply changes locally, and synchronize those modifications to the cloud server when needed, dynamically.
           </p>
-          <a class="project-link" target="_blank" href="https://www.adityavsingh.com/">Check it out!</a>
+          <a class="project-link" target="_blank" href="http://localhost:3000/">Check it out!</a>
         </div>
       </div>
 
@@ -179,12 +177,12 @@
       <div class="user-projects">
         <div class="images-left">
           <picture>
-            <source type="image/webp" srcset="./assets/img/webp/Perpetual-Crusades.webp" alt="Perpetual Crusades" />
-            <img alt="Perpetual Crusades" src="./assets/img/jpg/Perpetual-Crusades.jpg" />
+            <!--source type="image/webp" srcset="./assets/img/webp/cloud.webp" alt="Perpetual Crusades" /-->
+            <img alt="Perpetual Crusades" src="./assets/img/jpg/cloud.jpg" />
           </picture>
         </div>
         <div class="contents-right" style="text-align: center">
-          <h3>Perpetual Crusades</h3>
+          <h3>Cloud Server</h3>
           <img
             height="32"
             width="32"
@@ -201,13 +199,9 @@
           &nbsp;
           <img height="32" width="32" src="https://unpkg.com/simple-icons@3.4.0/icons/github.svg" />
           <p style="text-align: justify">
-            I created a two-player online dice-based board game with a theme loosely set around Dungeons & Dragons. It
-            was developed as a submission for Penn Apps XXI, using ReactJS and CSS Grid Layouts for design and hosted on
-            GitHub Pages.
+            The Cloud Server serves as a storage and processing entity that holds the encrypted document collection and the searchable index provided by the data owner. When a data user submits a trapdoor, the cloud server performs a search operation over the index without decrypting the data. It then retrieves and returns the top-ranked encrypted documents based on the query. Additionally, the cloud server accommodates updates by modifying the encrypted documents and the index whenever the data owner makes changes. Throughout the process, the cloud server remains untrusted and does not have access to the decrypted data, ensuring privacy and security.
           </p>
-          <a class="project-link" target="_blank" href="https://github.com/AVS1508/Summer-2020-Project"
-            >Check it out!</a
-          >
+          
         </div>
       </div>
 
@@ -215,12 +209,12 @@
       <div class="user-projects">
         <div class="images-right">
           <picture>
-            <source type="image/webp" srcset="./assets/img/webp/COVID19-Tracker-App.webp" alt="COVID-19 Tracker App" />
-            <img alt="COVID-19 Tracker App" src="./assets/img/jpg/COVID19-Tracker-App.jpg" />
+            <!--source type="image/webp" srcset="./assets/img/webp/data-user.webp" alt="COVID-19 Tracker App" /-->
+            <img alt="COVID-19 Tracker App" src="./assets/img/jpg/data-user.jpg" />
           </picture>
         </div>
         <div class="contents" style="text-align: center">
-          <h3>COVID-19 Tracker App</h3>
+          <h3>Data User</h3>
           <div>
             <img
               height="32"
@@ -230,17 +224,16 @@
             />
           </div>
           <p style="text-align: justify">
-            I created a web application for tracking the spread of COVID-19. Using Johns Hopkins University Center For
-            Systems Science and Engineering API, the website processes the COVID-19 data to create statistical
-            projections through graphs and charts.
+            The Data User is an authorized entity that can perform searches on the encrypted dataset. To retrieve relevant documents, the user formulates a query consisting of specific keywords. Using search control mechanisms, the user generates a trapdoor, which is then sent to the cloud server. Once the encrypted documents are retrieved based on the trapdoor, the data user applies a shared secret key to decrypt and access the required information securely.
           </p>
-          <a class="project-link" target="_blank" href="https://www.adityavsingh.com/covid19-tracker-app">
+          <a class="project-link" target="_blank" href="http://localhost:3001/">
             Check it out!
           </a>
         </div>
       </div>
-
+      
       <!-- Use Project #4: Valuto: Account Management System -->
+       <!---
       <div class="user-projects">
         <div class="images-left">
           <picture>
@@ -273,6 +266,7 @@
           </a>
         </div>
       </div>
+    -->
     </section>
 
     <footer class="footer">
