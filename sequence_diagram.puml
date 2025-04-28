@@ -1,0 +1,67 @@
+@startuml
+actor DataOwnerUser as DataOwnerUser #LightBlue
+box "Data Owner" #LightBlue
+  participant "React App (Data Owner)" as DataOwnerClient #LightBlue
+  participant "File Upload Server" as FileUploadServer #LightBlue
+  participant "TF-IDF Server" as TFIDFServer #LightBlue
+end box
+
+box "Encrypted Cloud Server" #LightGrey
+  participant "Encrypted Cloud Server" as CloudServer #LightGrey
+  participant "MongoDB" as MongoDB #LightGrey
+end box
+
+box "Data User" #LightYellow
+  participant "React App (Data User)" as DataUserClient #LightYellow
+  participant "Data User Server" as DataUserServer #LightYellow
+end box
+
+actor DataUserUser as DataUserUser #LightYellow
+
+== Document Upload from Data Owner ==
+DataOwnerUser -> DataOwnerClient: Upload document
+DataOwnerClient -> FileUploadServer: POST /upload
+FileUploadServer -> CloudServer: POST /document/post-doc
+CloudServer -> MongoDB: Insert encrypted document
+MongoDB --> CloudServer: Acknowledge success
+CloudServer --> FileUploadServer: Success response
+FileUploadServer --> DataOwnerClient: Success response
+
+== TF-IDF Processing by Data Owner ==
+DataOwnerUser -> DataOwnerClient: Trigger TF-IDF processing
+DataOwnerClient -> TFIDFServer: POST /upload
+TFIDFServer -> CloudServer: POST /inverted-index/post-index
+CloudServer -> MongoDB: Insert TF-IDF index
+MongoDB --> CloudServer: Acknowledge success
+CloudServer --> TFIDFServer: Success response
+TFIDFServer --> DataOwnerClient: Success response
+
+== Search Query from Data User ==
+DataUserUser -> DataUserClient: Submit search query
+DataUserClient -> DataUserServer: GET /query?query={search_terms}
+DataUserServer -> CloudServer: GET /search?query={encrypted_query}
+CloudServer -> MongoDB: Retrieve documents and indices
+MongoDB --> CloudServer: Return encrypted results
+CloudServer --> DataUserServer: Encrypted search results
+DataUserServer --> DataUserClient: Decrypted and ranked results
+DataUserClient --> DataUserUser: Display ranked results
+
+== Document Download by Data User ==
+DataUserUser -> DataUserClient: Request document download
+DataUserClient -> DataUserServer: POST /download
+DataUserServer -> CloudServer: GET /document/get-doc?docId={encrypted_id}
+CloudServer -> MongoDB: Retrieve encrypted document
+MongoDB --> CloudServer: Return encrypted document
+CloudServer --> DataUserServer: Encrypted document
+DataUserServer --> DataUserClient: Download success response
+DataUserClient --> DataUserUser: Provide downloaded document
+
+== View Downloaded Documents by Data User ==
+DataUserUser -> DataUserClient: View downloaded documents
+DataUserClient -> DataUserServer: GET /downloads
+DataUserServer -> MongoDB: Retrieve list of downloaded documents
+MongoDB --> DataUserServer: Return document list
+DataUserServer --> DataUserClient: List of downloaded documents
+DataUserClient --> DataUserUser: Display list of documents
+
+@enduml
