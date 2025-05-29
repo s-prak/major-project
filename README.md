@@ -6,6 +6,8 @@ A comprehensive solution for secure and efficient searching over encrypted cloud
 
 This project implements a secure search scheme that allows authorized users to perform efficient multi-keyword ranked searches over encrypted data stored in the cloud. The system ensures data privacy while maintaining search functionality and supporting dynamic updates to the encrypted dataset.
 
+Check the explained video execution of the project - [video explanation](https://drive.google.com/file/d/1UCrVg9N4Bz3IZawNaFNetiNlGp3xTEv4/view?usp=sharing)
+
 ## Repository Links
 
 - [Data Owner Component](https://github.com/s-prak/data_owner)
